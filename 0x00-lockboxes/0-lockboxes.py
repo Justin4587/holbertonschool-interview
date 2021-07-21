@@ -2,7 +2,7 @@
 
 
 def canUnlockAll(boxes):
-    """ numbers in lists """
+    """ numbers in lists should I add some words """
 
     copy_box = [False for l in range(len(boxes))]
     copy_box[0] = True
@@ -23,9 +23,9 @@ def canUnlockAll(boxes):
             if (i < total_boxes):
                 copy_box[i] = True
                 for j in boxes[i]:
-                    
+
                     if j not in keys:
                         new_keys.add(j)
                         added = True
-                
+
     return all(copy_box)
