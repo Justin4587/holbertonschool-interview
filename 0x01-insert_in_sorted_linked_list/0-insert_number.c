@@ -25,7 +25,6 @@ listint_t *insert_node(listint_t **head, int number)
         
         list->next = *head;
         *head = list;
-        printf("meow");
         return (list);
     }
 
