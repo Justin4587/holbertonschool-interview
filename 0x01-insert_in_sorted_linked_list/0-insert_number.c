@@ -20,11 +20,19 @@ listint_t *insert_node(listint_t **head, int number)
 
     list->n = number;
 
-
-    if (!*head || (*head)->n > number || !head)
+    if (!*head)
     {
-        *head = list;
+        
         list->next = *head;
+        *head = list;
+        return (list);
+    }
+
+    if (*head || (*head)->n > number)
+    {
+        
+        list->next = *head;
+        *head = list;
     }
     else
     {
