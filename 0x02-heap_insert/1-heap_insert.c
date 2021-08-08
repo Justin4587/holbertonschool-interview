@@ -32,10 +32,10 @@ heap_t *heap_insert(heap_t **root, int value)
         wait_here->parent->n = storage;
         wait_here = wait_here->parent;
     }
-    if (wait_here->left == NULL)
-        wait_here->left = bud;
-    else
+    if (wait_here->left)
         wait_here->right = bud;
+    else
+        wait_here->left = bud;
 
     return (wait_here);
 
