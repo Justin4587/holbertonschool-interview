@@ -12,9 +12,18 @@
  */
 int is_palindrome(unsigned long n)
 {
-    n = 8008;
-    if (n == 8008)
+    unsigned long reversed = 0, remainder, copy;
+    copy = n;
+
+    while (copy != 0)
+    {
+        remainder = copy % 10;
+        reversed = reversed * 10 + remainder;
+        copy /= 10;
+    }
+
+    if (reversed == n)
         return 1;
-        
+
     return 0;
 }
