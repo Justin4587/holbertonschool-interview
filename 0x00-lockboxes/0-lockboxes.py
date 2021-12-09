@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-""" lets try adding one"""
+""" Opening boxes """
 
 
 def canUnlockAll(boxes):
-    """ numbers in lists should I add some words """
+    """ You have n number of locked boxes in front of you.
+    Each box is numbered sequentially from 0 to n - 1 and each box may contain
+    keys to the other boxes.  """
 
     copy_box = [False for l in range(len(boxes))]
     copy_box[0] = True

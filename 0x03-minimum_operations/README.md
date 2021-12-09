@@ -1,1 +1,0 @@
-Min operations in PY
