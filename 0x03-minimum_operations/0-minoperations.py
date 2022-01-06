@@ -6,7 +6,6 @@ Main file for testing
 
 def minOperations(n):
     min_ = 0
-    
 
     if n < 2 or type(n) != int:
         return (0)
