@@ -14,5 +14,9 @@ def minOperations(n):
         while (n % i == 0):
             min_ = min_ + i
             n = n / i
+            if n <= 1:
+                break
+    if n > 1:
+        min_ = min_ + int(n)
 
     return (min_)
