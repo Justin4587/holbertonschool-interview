@@ -12,11 +12,11 @@ def minOperations(n):
 
     for i in range(2, (n + 1)):
         while (n % i == 0):
-            min_ = min_ + i
-            n = n / i
+            min_ = int(min_) + int(i)
+            n = int(n) / int(i)
             if n <= 1:
                 break
-    if n > 1:
+    if n >= 1:
         min_ = min_ + int(n)
 
     return (min_)
