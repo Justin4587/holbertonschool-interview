@@ -16,7 +16,7 @@ def minOperations(n):
             n = int(n) / int(i)
             if n <= 1:
                 break
-    if n >= 1:
+    if n > 1:
         min_ = min_ + int(n)
 
     return (min_)
