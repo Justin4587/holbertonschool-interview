@@ -8,7 +8,7 @@ def minOperations(n):
     min_ = 0
     
 
-    if n <= 2:
+    if n <= 2 or type(n) != int:
         return (0)
 
     for i in range(2, (n + 1)):
