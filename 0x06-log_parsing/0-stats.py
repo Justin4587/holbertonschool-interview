@@ -16,25 +16,25 @@ def printIt(codes, fSize):
         if codes[line] > 0:
             print(line + ": " + str(codes[line]))
 
-    if __name__ == "__main__":
-        try:
-            for line in stdin:
-                lCount += 1
-                splitLine = line.split()
+if __name__ == "__main__":
+    try:
+        for line in stdin:
+            lCount += 1
+            splitLine = line.split()
 
-        if len(splitLine) > 1:
-            fSize += int(splitLine[-1])
+            if len(splitLine) > 1:
+                fSize += int(splitLine[-1])
 
-        if len(splitLine) > 2 and splitLine[-2].isnumeric():
-            theCode = splitLine[-2]
-        else:
-            theCode = 0
+            if len(splitLine) > 2 and splitLine[-2].isnumeric():
+                theCode = splitLine[-2]
+            else:
+                theCode = 0
 
-        if theCode in codes.keys():
-            codes[theCode] += 1
+            if theCode in codes.keys():
+                codes[theCode] += 1
 
-        if lCount % 10 == 0:
-            printIt(codes, fSize)
+            if lCount % 10 == 0:
+                printIt(codes, fSize)
 
         printIt(codes, fSize)
 
