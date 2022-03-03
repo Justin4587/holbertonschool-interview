@@ -10,7 +10,7 @@ void menger(int level)
 
 	if (level < 0)
 		return;
-	
+
 	power = pow(3, level);
 	for (col = 0; col < power; col++)
 	{
