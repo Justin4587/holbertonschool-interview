@@ -6,18 +6,18 @@
  */
 void menger(int level)
 {
-    int col, row, power;
+	int col, row, power;
 
-    if (level < 0)
-        return;
-    
-    power = pow(3, level);
-    for (col = 0; col < power; col++)
-    {
-        for (row = 0; row < power; row++)
-            putchar(fate(col, row));
-        putchar(10);
-    }
+	if (level < 0)
+		return;
+	
+	power = pow(3, level);
+	for (col = 0; col < power; col++)
+	{
+		for (row = 0; row < power; row++)
+			putchar(fate(col, row));
+		putchar(10);
+	}
 }
 
 /**
@@ -28,11 +28,11 @@ void menger(int level)
  */
 char fate(int col, int row)
 {
-    while (col && row)
-    {
-        if (col % 3 == 1 && row % 3 == 1)
-            return (' ');
-        col /= 3, row /= 3;
-    }
-    return ('#');
+	while (col && row)
+	{
+		if (col % 3 == 1 && row % 3 == 1)
+			return (' ');
+		col /= 3, row /= 3;
+	}
+	return ('#');
 }
