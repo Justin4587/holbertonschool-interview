@@ -10,7 +10,7 @@ def nqueens():
     if len(argv) != 2:
         print("Usage: nqueens N")
         exit(1)
-    
+
     try:
         N = int(argv[1])
     except ValueError:
@@ -27,6 +27,7 @@ def nqueens():
 
     positions(board, col, N)
 
+
 def positions(board, col, N):
     """should work out everything else lets see how that goes"""
 
@@ -38,7 +39,7 @@ def positions(board, col, N):
             for j in range(col):
                 if check(board, j, i, col):
                     thing = False
-            if thing == True:
+            if thing is True:
                 board[col] = i
                 positions(board, col + 1, N)
 
