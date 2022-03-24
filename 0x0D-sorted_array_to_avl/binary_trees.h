@@ -25,6 +25,4 @@ void binary_tree_print(const binary_tree_t *);
 avl_t *sorted_array_to_avl(int *array, size_t size);
 avl_t *world_tree(avl_t *head, int *array, size_t start, size_t end);
 
-
-
 #endif /* _BINARY_TREES_H_ */
