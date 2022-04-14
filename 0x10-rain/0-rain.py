@@ -2,7 +2,7 @@
 """how much can it hold"""
 
 def rain(walls):
-	"""given integers determine amount"""
+	"""given integers determine amount of water collected"""
 	amount = 0
 	for i in range(len(walls)):
 		left = walls[i]
