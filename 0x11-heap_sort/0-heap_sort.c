@@ -21,14 +21,14 @@ void heap_sort(int *array, size_t size)
   while (i < (int)size)
   {
     heapify(array, size, 0 + i);
-    printf("%d", i);
+    //printf("%d", i);
     //print_array(array, size);
     i++;
   }
   while (i < (int)size)
   {
     heapify(array, size, 0 + i);
-    printf("%d", i);
+    //printf("%d", i);
     // print_array(array, size);
     i++;
   }
