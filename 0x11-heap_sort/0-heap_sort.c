@@ -25,6 +25,7 @@ void heap_sort(int *array, size_t size)
     //print_array(array, size);
     i++;
   }
+  i = 0;
   while (i < (int)size)
   {
     heapify(array, size, 0 + i);
