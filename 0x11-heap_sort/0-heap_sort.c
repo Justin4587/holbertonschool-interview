@@ -3,34 +3,24 @@
  * heap_sort - sort using heap sort method
  * @array: array to sort
  * @size: size of array
- * 
+ *
  */
 void heap_sort(int *array, size_t size)
 {
   int i = 0;
 
   if (!array)
-  return;
-
-  //printf("%li", size);
-
-  //heapify(array, size, 0);
-  //heapify(array, size, i);
-  //print_array(array, size);
+    return;
 
   while (i < (int)size)
   {
     heapify(array, size, 0 + i);
-    //printf("%d", i);
-    //print_array(array, size);
     i++;
   }
   i = 0;
   while (i < (int)size)
   {
     heapify(array, size, 0 + i);
-    //printf("%d", i);
-    // print_array(array, size);
     i++;
   }
   heapify(array, size, 0);
@@ -50,22 +40,20 @@ void heapify(int *array, size_t size, int idx)
 
   while (idx < (int)size)
   {
-    if (left <= (int)size && array[left] < array[largest])
+    if (left < (int)size && array[left] < array[largest])
     {
       largest = left;
-      
     }
 
-    if (right <= (int)size && array[right] < array[largest])
+    if (right < (int)size && array[right] < array[largest])
     {
       largest = right;
-      
     }
 
     if (largest > idx)
     {
       swap(&array[largest], &array[idx]);
-      heapify(array, size, idx + 1);
+      heapify(array, size, idx);
     }
 
     right += 1;
@@ -81,7 +69,7 @@ void heapify(int *array, size_t size, int idx)
  * @b: size of array
  *
  */
-void swap(int* a, int* b)
+void swap(int *a, int *b)
 {
   int swap = *a;
   *a = *b;
