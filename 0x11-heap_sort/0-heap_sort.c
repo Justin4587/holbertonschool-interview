@@ -8,58 +8,51 @@
 void heap_sort(int *array, size_t size)
 {
   int i = 0;
+  int j;
+  int sizeint = (int)size;
 
-  if (!array)
+  if (!array || size < 2)
     return;
 
-  while (i < (int)size)
-  {
-    heapify(array, size, 0 + i);
-    i++;
-  }
-  i = 0;
-  while (i < (int)size)
-  {
-    heapify(array, size, 0 + i);
-    i++;
-  }
-  heapify(array, size, 0);
+  for (j = sizeint / 2; j > 0; j--)
+    heapify(array, size, j - 1, sizeint);
+    
+  for (i = sizeint - 1; i > 0; i--)
+    {
+      swap(&array[0], &array[i]);
+      print_array(array, size);
+      heapify(array, size, 0, i);
+    }
 }
 
 /**
  * heapify - sort using heap sort method
  * @array: array to sort
  * @size: size of array
- *
+ * @idx: integer
+ * @index: integer
  */
-void heapify(int *array, size_t size, int idx)
+void heapify(int *array, size_t size, int idx, int index)
 {
   int largest = idx;
-  int left = (idx * 2) + 1;
-  int right = (idx * 2) + 2;
-
-  while (idx < (int)size)
+  int left = idx * 2 + 1;
+  int right = idx * 2 + 2;
+  
+  if (left < index && array[left] > array[largest])
   {
-    if (left < (int)size && array[left] < array[largest])
-    {
-      largest = left;
-    }
+    largest = left;
+  }
 
-    if (right < (int)size && array[right] < array[largest])
-    {
-      largest = right;
-    }
+  if (right < index && array[right] > array[largest])
+  {
+    largest = right;
+  }
 
-    if (largest > idx)
-    {
-      swap(&array[largest], &array[idx]);
-      heapify(array, size, idx);
-    }
-
-    right += 1;
-    left += 1;
-    idx = idx + 1;
+  if (largest != idx)
+  {
+    swap(&array[idx], &array[largest]);
     print_array(array, size);
+    heapify(array, size, largest, index);
   }
 }
 
