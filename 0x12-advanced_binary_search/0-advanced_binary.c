@@ -51,12 +51,15 @@ int binary_search_adv(int *array, int value, int start, int sub)
 void print_it(int *array, int start, int sub)
 {
 	int i;
+
 	printf("Searching in array: ");
+
 	for (i = start; i <= sub; i++)
 	{
 		printf("%d", array[i]);
 		if (i < sub)
 			printf(", ");
 	}
+
 	printf("\n");
 }
