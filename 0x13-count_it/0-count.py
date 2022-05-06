@@ -23,7 +23,6 @@ def count_words(subreddit, word_list, dict={}, after='null'):
   hotJson = hot.json()
   data = hotJson.get('data')
   chillins = data.get('children')
-  """print(hotJson)"""
 
   if (data and chillins):
     for title in chillins:
@@ -45,4 +44,3 @@ def count_words(subreddit, word_list, dict={}, after='null'):
       else:
         for i in sorted(dict, key=dict.get, reverse=True):
           print('{}: {}'.format(i, dict[i]))
-  return None
