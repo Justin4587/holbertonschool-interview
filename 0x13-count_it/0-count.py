@@ -40,7 +40,7 @@ def count_words(subreddit, word_list, dict={}, after='null'):
     if (AFTER is not None):
       return count_words(subreddit, word_list, dict, AFTER)
     else:
-      if (word_list == []):
+      if (word_list == [] or dict == {}):
         return None
       else:
         for i in sorted(dict, key=dict.get, reverse=True):
