@@ -45,3 +45,4 @@ def count_words(subreddit, word_list, dict={}, after='null'):
       else:
         for i in sorted(dict, key=dict.get, reverse=True):
           print('{}: {}'.format(i, dict[i]))
+  return None
