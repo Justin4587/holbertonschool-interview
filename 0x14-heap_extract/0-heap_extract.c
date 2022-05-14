@@ -61,7 +61,7 @@ int heightNodeCount(heap_t *root)
 }
 
 /**
- * last - last node
+ * last - last node   heap_t binary_tree_t _s _j all a bitch
  *
  * @root: Pointer to the root
  * Return: last node
