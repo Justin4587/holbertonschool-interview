@@ -18,13 +18,11 @@ typedef struct binary_tree_s
 } heap_t;
 
 typedef struct binary_tree_s binary_tree_t;
-typedef struct binary_tree_s binary_tree_j;
 typedef struct binary_tree_s heap_t;
 
 int heap_extract(heap_t **root);
 int heightNodeCount(heap_t *root);
 void heapIt(heap_t *root);
 heap_t *last(heap_t *root);
-void binary_tree_print(const heap_t *);
 
 #endif /* BINARY_TREES_H */
