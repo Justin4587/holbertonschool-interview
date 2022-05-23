@@ -1,4 +1,6 @@
 #include "holberton.h"
+#include "stdio.h"
+
 
 /**
  * printError - prints error
@@ -14,6 +16,7 @@ void printError()
   {
     _putchar(err[i]);
   }
+  exit (98);
 }
 
 /**
@@ -25,15 +28,14 @@ void printError()
 
 int main(int argc, char **argv)
 {
-  int argCheck, product = 0;
   
-  if (argc != 3)
+  if (argc < 2)
   {
     printError();
-    return (98);
   }
 
-  argCheck = argProcessor(argv);
+
+  return (argProcessor(argv));
 
 }
 
@@ -46,16 +48,24 @@ int main(int argc, char **argv)
 
 int argProcessor(char *argv[])
 {
-  int i, j;
   int len, str1Len, str2Len;
-  int product;
+  int *product = 0;
 
   str1Len = _strlen(argv[1]);
   str2Len = _strlen(argv[2]);
   len = str1Len + str2Len;
+  if(len == 0)
+    printError();
+  
+  int imNumbers = _atoi(argv[1]);
+  int imNumbersToo = _atoi(argv[2]);
+  product = malloc(len * sizeof(int));
 
-  product = malloc(sizeof(int) * len);
-
+  printf("%ls\n", product);
+  printf("%d\n", imNumbers);
+  printf("%d\n", imNumbersToo);
+  printf("%d\n", imNumbers * imNumbersToo);
+  return(0);
 }
 
 
@@ -66,7 +76,7 @@ int argProcessor(char *argv[])
  * Return: 1 or 0
  */
 
-int _isdigit(int c)
+int _isdigit(char c)
 {
   if (c > 57 && c < 48)
     return (0);
@@ -77,6 +87,22 @@ int _isdigit(int c)
 }
 
 /**
+ * _atoi - make it a number
+ * @str: input string
+ * Return: length of string
+ */
+
+int _atoi(const char *s)
+{
+  int i, n;
+  n = 0;
+  for (i = 0; (s[i] >= '0') && (s[i] <= '9'); i++)
+    n = 10 * n + (s[i] - '0');
+
+  return n;
+}
+
+/**
  * _strlen - gets length of a string
  * @str: input string
  * Return: length of string
@@ -84,8 +110,14 @@ int _isdigit(int c)
 int _strlen(char *str)
 {
   unsigned int i = 0;
+  int digit = 1;
 
   while (str[i])
-    i++;
+    {
+      digit = _isdigit(str[i]);
+      if (digit == 0)
+        printError();
+      i++;
+    }
   return (i);
 }
