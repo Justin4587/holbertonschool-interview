@@ -48,23 +48,27 @@ int main(int argc, char **argv)
 
 int argProcessor(char *argv[])
 {
-  int len, str1Len, str2Len;
-  int *product = 0;
-
-  str1Len = _strlen(argv[1]);
-  str2Len = _strlen(argv[2]);
-  len = str1Len + str2Len;
+  int str1Len = _strlen(argv[1]);
+  int str2Len = _strlen(argv[2]);
+  int len = str1Len + str2Len;
+  char charProduct[len * len];
   if(len == 0)
     printError();
   
   int imNumbers = _atoi(argv[1]);
   int imNumbersToo = _atoi(argv[2]);
-  product = malloc(len * sizeof(int));
+  long int intProduct = imNumbers * imNumbersToo;
 
-  printf("%ls\n", product);
-  printf("%d\n", imNumbers);
-  printf("%d\n", imNumbersToo);
-  printf("%d\n", imNumbers * imNumbersToo);
+  _itoa(intProduct, charProduct);
+  _reverse(charProduct);
+  int j = 0;
+  while (charProduct[j])
+  {
+    _putchar(charProduct[j]);
+    j++;
+  }
+  _putchar('\n');
+
   return(0);
 }
 
@@ -103,10 +107,38 @@ int _atoi(const char *s)
 }
 
 /**
- * _strlen - gets length of a string
- * @str: input string
- * Return: length of string
+ * _itoa - make it a char
+ * @num: input int
+ * @charProduct: product storage
+ * Return: string form of int
  */
+
+void _itoa(int intProduct, char charProduct[])
+{
+  int i, neg = intProduct;
+  if (neg < 0)
+    intProduct = -intProduct;
+  i = 0;
+  do
+  {
+    charProduct[i++] = intProduct % 10 + '0';
+    // int digit = n % 10;
+    // result[--index] = (char)('0' + digit);
+    // n /= 10;
+  } while ((intProduct /= 10) > 0);
+
+  if (neg < 0)
+  {
+    charProduct[i++] = '-';
+  }
+  charProduct[i] = '\0';
+}
+
+/**
+* _strlen - gets length of a string
+* @str: input string
+* Return: length of string
+*/
 int _strlen(char *str)
 {
   unsigned int i = 0;
@@ -120,4 +152,23 @@ int _strlen(char *str)
       i++;
     }
   return (i);
+}
+
+/**
+ * _reverse - reverse string
+ * @charProduct: input string
+ * Return: nothing
+ */
+
+void _reverse(char charProduct[])
+{
+  int i, j;
+  char temp;
+  for (i = 0, j = _strlen(charProduct) - 1; i < j; i++, j--)
+  {
+    temp = charProduct[i];
+    charProduct[i] = charProduct[j];
+    charProduct[j] = temp;
+
+  }
 }
