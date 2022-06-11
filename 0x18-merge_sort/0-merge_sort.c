@@ -4,6 +4,29 @@
 
 
 /**
+ * _print_array - Prints an array of integers
+ *
+ * @array: The array to be printed
+ * @beg: Number of elements in @array
+ * @end: POS in @array
+ */
+void _print_array(const int *array, int beg, int end)
+{
+	int i;
+
+	i = beg;
+	while (array && i <= end)
+	{
+		if (i < end)
+			printf("%d, ", array[i]);
+		else
+			printf("%d\n", array[i]);
+	++i;
+	}
+}
+
+
+/**
  * merge_sort - Sorts an array of integers
  *
  * @array: The array to be printed
@@ -62,8 +85,9 @@ void meatAndPotatoes(int *array, size_t size __attribute__((unused)),
 {
 	int i = beg, j = mid + 1, k = 0;
 
-	print_array(array, size);
-	print_array(served, size);
+	printf("Merging...\n");
+
+
 	while (i <= mid && j <= end)
 	{
 		if (array[i] <= array[j])
@@ -85,14 +109,18 @@ void meatAndPotatoes(int *array, size_t size __attribute__((unused)),
 		k++;
 		i++;
 	}
-
+	printf("[left]: ");
+	_print_array(array, beg, mid);
 	while (j <= end)
 	{
 		served[k] = array[j];
 		k++, j++;
 	}
-
+	printf("[right]: ");
+	_print_array(array, mid + 1, end);
 	for (i = beg; i <= end; i++)
 		array[i] = served[i - beg];
+	printf("[Done]: ");
+	_print_array(array, beg, end);
 
 }
