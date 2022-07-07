@@ -51,17 +51,19 @@ int argProcessor(char *argv[])
   int str1Len = _strlen(argv[1]);
   int str2Len = _strlen(argv[2]);
   int len = str1Len + str2Len;
-  char charProduct[len * len];
+  int j = 0, imNumbers = 0, imNumbersToo = 0;
+  long int intProduct = 0;
+  char *charProduct = NULL;
   if(len == 0)
     printError();
   
-  int imNumbers = _atoi(argv[1]);
-  int imNumbersToo = _atoi(argv[2]);
-  long int intProduct = imNumbers * imNumbersToo;
+  imNumbers = _atoi(argv[1]);
+  imNumbersToo = _atoi(argv[2]);
+  intProduct = imNumbers * imNumbersToo;
+  charProduct = malloc(sizeof(char) * len);
 
   _itoa(intProduct, charProduct);
   _reverse(charProduct);
-  int j = 0;
   while (charProduct[j])
   {
     _putchar(charProduct[j]);
@@ -122,9 +124,6 @@ void _itoa(int intProduct, char charProduct[])
   do
   {
     charProduct[i++] = intProduct % 10 + '0';
-    // int digit = n % 10;
-    // result[--index] = (char)('0' + digit);
-    // n /= 10;
   } while ((intProduct /= 10) > 0);
 
   if (neg < 0)
